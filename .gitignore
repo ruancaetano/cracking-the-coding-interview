@@ -19,7 +19,7 @@
 
 # Arquivos específicos de IDEs/editores
 .vscode/
-.idea/
+golang/.idea/
 *.iml
 
 # Configurações de sistema/macOS
