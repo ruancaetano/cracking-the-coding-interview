@@ -1,0 +1,32 @@
+# Binários gerados pelo Go
+/bin/
+/out/
+/dist/
+/build/
+
+
+# Arquivos temporários gerados por editores
+*.swp
+*.swo
+*.tmp
+*.log
+*.bak
+*.old
+
+# Arquivos de debug
+*.trace
+*.prof
+
+# Arquivos específicos de IDEs/editores
+.vscode/
+.idea/
+*.iml
+
+# Configurações de sistema/macOS
+.DS_Store
+Thumbs.db
+
+# Cobertura de testes
+*.out
+*.coverprofile
+coverage.out
