@@ -14,8 +14,13 @@ func NewStringBuilder() StringBuilder {
 	}
 }
 
-func (s StringBuilder) Add(input string) StringBuilder {
+func (s StringBuilder) InsertAtEnd(input string) StringBuilder {
 	s.values = append(s.values, input)
+	return s
+}
+
+func (s StringBuilder) InsertAtStart(input string) StringBuilder {
+	s.values = append([]string{input}, s.values...)
 	return s
 }
 

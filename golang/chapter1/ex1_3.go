@@ -57,11 +57,11 @@ func urlifyWithBuilder(input []rune, trueLength int) string {
 	for i := 0; i < trueLength; i++ {
 		char := string(input[i])
 		if char != " " {
-			builder = builder.Add(char)
+			builder = builder.InsertAtEnd(char)
 			continue
 		}
 
-		builder = builder.Add(SpaceEncodeString)
+		builder = builder.InsertAtStart(SpaceEncodeString)
 	}
 
 	return builder.Build()
