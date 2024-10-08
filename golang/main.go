@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	chapter1.Run1_5()
+	chapter1.Run1_6()
 }
