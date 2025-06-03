@@ -3,6 +3,7 @@
 /out/
 /dist/
 /build/
+*.o
 
 
 # Arquivos temporários gerados por editores
@@ -19,7 +20,7 @@
 
 # Arquivos específicos de IDEs/editores
 .vscode/
-golang/.idea/
+.idea/
 *.iml
 
 # Configurações de sistema/macOS

@@ -1,0 +1,1 @@
+g++ ex2_2.cpp ../common/node.cpp ../common/linked_list.cpp -o solve.o && ./solve.o
