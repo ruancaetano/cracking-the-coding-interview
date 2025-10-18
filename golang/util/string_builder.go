@@ -1,33 +1,29 @@
 package util
 
-import (
-	"strings"
-)
-
 type StringBuilder struct {
-	values []string
+	values []rune
 }
 
 func NewStringBuilder() StringBuilder {
 	return StringBuilder{
-		values: make([]string, 0),
+		values: make([]rune, 0),
 	}
 }
 
-func (s StringBuilder) InsertAtEnd(input string) StringBuilder {
-	s.values = append(s.values, input)
+func (s StringBuilder) InsertAtEnd(input ...rune) StringBuilder {
+	s.values = append(s.values, input...)
 	return s
 }
 
-func (s StringBuilder) InsertAtStart(input string) StringBuilder {
-	s.values = append([]string{input}, s.values...)
+func (s StringBuilder) InsertAtStart(input ...rune) StringBuilder {
+	s.values = append(input, s.values...)
 	return s
 }
 
-func (s StringBuilder) GetLastInserted() string {
+func (s StringBuilder) GetLastInserted() rune {
 	last := len(s.values) - 1
 	if last < 0 {
-		return ""
+		return rune(0)
 	}
 
 	return s.values[last]
@@ -43,10 +39,10 @@ func (s StringBuilder) DeleteLast() StringBuilder {
 		return s
 	}
 
-	s.values = append(s.values[:last])
+	s.values = s.values[:last]
 	return s
 }
 
 func (s StringBuilder) Build() string {
-	return strings.Join(s.values, "")
+	return string(s.values)
 }

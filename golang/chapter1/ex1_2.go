@@ -4,8 +4,9 @@ import (
 	"fmt"
 )
 
-// Run1_2 Check Permutation: Given two strings, write a method to decide if one is a permutation of the other.
-func Run1_2() {
+// RunChapter1Exercise2
+// Check Permutation: Given two strings, write a method to decide if one is a permutation of the other.
+func RunChapter1Exercise2() {
 	fmt.Println(AreStringPermutable("aaa", "a"))
 	fmt.Println(AreStringPermutable("aaa", "aab"))
 
@@ -16,6 +17,9 @@ func Run1_2() {
 	fmt.Println(AreStringPermutable("aabbcc", "bcacba"))
 }
 
+// Time: O(N)
+// Space: O(N)
+// Where N is the input length
 func AreStringPermutable(first, second string) bool {
 	if len(first) != len(second) {
 		return false

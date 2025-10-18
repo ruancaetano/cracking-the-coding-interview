@@ -7,18 +7,22 @@ import (
 	"github.com/ruancaetano/cracking-the-coding-interview/golang/util"
 )
 
+// RunChapter1Exercise6
 // String Compression: Implement a method to perform basic string compression using the counts of repeated characters.
 // For example, the string aabcccccaaa would become a2b1c5a3, If the "compressed" string would not become smaller than the
 // original string, your method should return the original string.
 // You can assume the string has only uppercase and lowercase letters (a - z).
-func Run1_6() {
+func RunChapter1Exercise6() {
 	fmt.Println(compressString(util.StringToRuneArray("aabcccccaaa")))
 	fmt.Println(compressString(util.StringToRuneArray("abc")))
 	fmt.Println(compressString(util.StringToRuneArray("aabbcccccccd")))
 }
 
+// Time: O(N)
+// Space: O(N)
+// Where N is the inputs length
 func compressString(original []rune) string {
-	var result string
+	result := make([]rune, 0, len(original))
 
 	lastChar := original[0]
 	lastCharCount := 1
@@ -28,17 +32,17 @@ func compressString(original []rune) string {
 			continue
 		}
 
-		parsedNumber := strconv.Itoa(lastCharCount)
-		result += string(lastChar) + parsedNumber
+		result = append(result, lastChar)
+		result = append(result, []rune(strconv.Itoa(lastCharCount))...)
 		lastChar = original[i]
 		lastCharCount = 1
 	}
 
-	parsedNumber := strconv.Itoa(lastCharCount)
-	result += string(lastChar) + parsedNumber
+	result = append(result, lastChar)
+	result = append(result, []rune(strconv.Itoa(lastCharCount))...)
 
 	if len(result) > len(original) {
 		return string(original)
 	}
-	return result
+	return string(result)
 }

@@ -6,7 +6,7 @@ import (
 	"github.com/ruancaetano/cracking-the-coding-interview/golang/util"
 )
 
-// Run1_5
+// RunChapter1Exercise5
 // One Away: There are three types of edits that can be performed on strings: insert a character, remove a character, or replace a character.
 // Given two strings, write a function to check if they are one edit (or zero edits) away.
 // EXAMPLE
@@ -14,13 +14,16 @@ import (
 // pales, pale -> true
 // pale, bale -> true
 // pale, bake -> false
-func Run1_5() {
+func RunChapter1Exercise5() {
 	fmt.Println(isOneWayEdit(util.StringToRuneArray("pale"), util.StringToRuneArray("pile")))
 	fmt.Println(isOneWayEdit(util.StringToRuneArray("pales"), util.StringToRuneArray("pale")))
 	fmt.Println(isOneWayEdit(util.StringToRuneArray("pale"), util.StringToRuneArray("bale")))
 	fmt.Println(isOneWayEdit(util.StringToRuneArray("pale"), util.StringToRuneArray("bakerrr")))
 }
 
+// Time: O(N + K)
+// Space: O(N)
+// Where N and K is the inputs length respectively
 func isOneWayEdit(first []rune, second []rune) bool {
 	mappedFirstLetters := map[rune]int{}
 
