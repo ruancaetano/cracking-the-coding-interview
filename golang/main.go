@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/chapter1"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/chapter2"
 )
 
 func main() {
-	chapter1.RunChapter1Exercise9()
+	chapter2.RunChapter2Exercise1()
 }
