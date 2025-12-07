@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	chapter2.RunChapter2Exercise4()
+	chapter2.RunChapter2Exercise5()
 }
