@@ -1,6 +1,6 @@
 package chapter2
 
-import "github.com/ruancaetano/cracking-the-coding-interview/golang/util"
+import "github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
 
 // RunChapter2Exercise1
 // Remove Dups: Write code to remove duplicates from an unsorted linked list.
@@ -8,8 +8,8 @@ import "github.com/ruancaetano/cracking-the-coding-interview/golang/util"
 // How would you solve this problem if a temporary buffer is not allowed?
 func RunChapter2Exercise1() {
 	// Use a more comprehensive test case with multiple duplicates and scattered order
-	input := util.NewLinkedListFromSlice([]int{2, 3, 5, 3, 7, 2, 9, 5, 11, 3, 2, 11})
-	inputTwo := util.NewLinkedListFromSlice([]int{2, 3, 5, 3, 7, 2, 9, 5, 11, 3, 2, 11})
+	input := shared.NewLinkedListFromSlice([]int{2, 3, 5, 3, 7, 2, 9, 5, 11, 3, 2, 11})
+	inputTwo := shared.NewLinkedListFromSlice([]int{2, 3, 5, 3, 7, 2, 9, 5, 11, 3, 2, 11})
 	removeDuplicatesWithHashMap(input.Head)
 	removeDuplicatesWithoutHashMap(inputTwo.Head)
 	// expected result: 2 -> 3 -> 5 -> 7 -> 9 -> 11
@@ -21,11 +21,11 @@ func RunChapter2Exercise1() {
 // Time: O(N)
 // Space: O(N)
 // Where N is the list length
-func removeDuplicatesWithHashMap(head *util.Node[int]) {
+func removeDuplicatesWithHashMap(head *shared.Node[int]) {
 	found := map[int]bool{}
 
 	current := head
-	var previous *util.Node[int]
+	var previous *shared.Node[int]
 
 	for {
 		if current == nil {
@@ -49,7 +49,7 @@ func removeDuplicatesWithHashMap(head *util.Node[int]) {
 // Time: O(N^2)
 // Space: O(1)
 // Where N is the list length
-func removeDuplicatesWithoutHashMap(head *util.Node[int]) {
+func removeDuplicatesWithoutHashMap(head *shared.Node[int]) {
 	i := head
 
 	for {

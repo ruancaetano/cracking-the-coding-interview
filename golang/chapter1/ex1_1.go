@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/util"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
 )
 
 // RunChapter1Exercise1
@@ -17,9 +17,9 @@ func RunChapter1Exercise1() {
 
 	fmt.Println("---")
 
-	fmt.Println(hasUniqueCharWithoutHashMap(util.StringToRuneArray("44")))
-	fmt.Println(hasUniqueCharWithoutHashMap(util.StringToRuneArray("117")))
-	fmt.Println(hasUniqueCharWithoutHashMap(util.StringToRuneArray("132")))
+	fmt.Println(hasUniqueCharWithoutHashMap(shared.StringToRuneArray("44")))
+	fmt.Println(hasUniqueCharWithoutHashMap(shared.StringToRuneArray("117")))
+	fmt.Println(hasUniqueCharWithoutHashMap(shared.StringToRuneArray("132")))
 }
 
 // Solution with map

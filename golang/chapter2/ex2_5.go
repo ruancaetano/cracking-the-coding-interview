@@ -3,7 +3,7 @@ package chapter2
 import (
 	"fmt"
 
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/util"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
 )
 
 // RunChapter2Exercise5
@@ -15,8 +15,8 @@ import (
 // Output: 2 -> 1 -> 9                   // 912
 func RunChapter2Exercise5() {
 	// Build example lists using util structures
-	firstNumber := util.NewLinkedListFromSlice([]int{7, 1, 6})  // 617
-	secondNumber := util.NewLinkedListFromSlice([]int{5, 9, 2}) // 295
+	firstNumber := shared.NewLinkedListFromSlice([]int{7, 1, 6})  // 617
+	secondNumber := shared.NewLinkedListFromSlice([]int{5, 9, 2}) // 295
 
 	fmt.Print("First number:  ")
 	firstNumber.Print()
@@ -27,8 +27,8 @@ func RunChapter2Exercise5() {
 	resultAHead := sumLists(firstNumber.Head, secondNumber.Head)
 	resultBHead := sumListsRecursivily(firstNumber.Head, secondNumber.Head)
 
-	resultA := util.LinkedList[int]{Head: resultAHead}
-	resultB := util.LinkedList[int]{Head: resultBHead}
+	resultA := shared.LinkedList[int]{Head: resultAHead}
+	resultB := shared.LinkedList[int]{Head: resultBHead}
 
 	fmt.Print("Result interactive:        ")
 	resultA.Print()
@@ -43,10 +43,10 @@ func RunChapter2Exercise5() {
 // The function should return the head of a new linked list representing the sum.
 // Time: O(N) where N is the length of the bigger number
 // Space: O(N)
-func sumLists(a, b *util.Node[int]) *util.Node[int] {
+func sumLists(a, b *shared.Node[int]) *shared.Node[int] {
 	var carry int
 
-	var resultHead *util.Node[int]
+	var resultHead *shared.Node[int]
 	resultNode := resultHead
 
 	i := a
@@ -71,7 +71,7 @@ func sumLists(a, b *util.Node[int]) *util.Node[int] {
 			carry = 0
 		}
 
-		newNode := util.Node[int]{
+		newNode := shared.Node[int]{
 			Value: value,
 			Next:  nil,
 		}
@@ -93,7 +93,7 @@ func sumLists(a, b *util.Node[int]) *util.Node[int] {
 	}
 
 	if carry > 0 {
-		newNode := util.Node[int]{
+		newNode := shared.Node[int]{
 			Value: carry,
 			Next:  nil,
 		}
@@ -103,19 +103,19 @@ func sumLists(a, b *util.Node[int]) *util.Node[int] {
 	return resultHead
 }
 
-func sumListsRecursivily(a, b *util.Node[int]) *util.Node[int] {
+func sumListsRecursivily(a, b *shared.Node[int]) *shared.Node[int] {
 	return sumListsRecHelper(a, b, 0)
 }
 
 // sumListsRecHelper recursively adds digits from two linked lists and a carry,
 // returning the head of the resulting list.
-func sumListsRecHelper(a, b *util.Node[int], carry int) *util.Node[int] {
+func sumListsRecHelper(a, b *shared.Node[int], carry int) *shared.Node[int] {
 	if a == nil && b == nil && carry == 0 {
 		return nil
 	}
 
 	value := carry
-	var nextA, nextB *util.Node[int]
+	var nextA, nextB *shared.Node[int]
 
 	if a != nil {
 		value += a.Value
@@ -127,7 +127,7 @@ func sumListsRecHelper(a, b *util.Node[int], carry int) *util.Node[int] {
 		nextB = b.Next
 	}
 
-	resultNode := &util.Node[int]{
+	resultNode := &shared.Node[int]{
 		Value: value % 10,
 	}
 

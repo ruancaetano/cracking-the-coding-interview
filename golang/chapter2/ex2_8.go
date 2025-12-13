@@ -1,6 +1,6 @@
 package chapter2
 
-import "github.com/ruancaetano/cracking-the-coding-interview/golang/util"
+import "github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
 
 // RunChapter2Exercise8
 // Loop Detection: Given a circular linked list, implement an algorithm that returns
@@ -22,7 +22,7 @@ func RunChapter2Exercise8() {
 // detectLoopStart should return the node at the beginning of the loop,
 // or nil if there is no loop in the list.
 // Implement the logic for this function as part of your solution.
-func detectLoopStart(head *util.Node[int]) *util.Node[int] {
+func detectLoopStart(head *shared.Node[int]) *shared.Node[int] {
 	// TODO: Implement loop detection for the linked list.
 	panic("implement me")
 }

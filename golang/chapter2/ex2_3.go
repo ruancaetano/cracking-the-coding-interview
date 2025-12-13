@@ -9,11 +9,11 @@ package chapter2
 // Expected output after removal: 1 -> 2 -> 4 -> 5
 
 import (
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/util"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
 )
 
 func RunChapter2Exercise3() {
-	input := util.NewLinkedListFromSlice([]int{1, 2, 3, 4, 5})
+	input := shared.NewLinkedListFromSlice([]int{1, 2, 3, 4, 5})
 	input.Print()
 
 	// ref to node wit value 3
@@ -26,7 +26,7 @@ func RunChapter2Exercise3() {
 
 // Time: O(1)
 // Space: O(1)
-func removeNode(node *util.Node[int]) {
+func removeNode(node *shared.Node[int]) {
 	node.Value = node.Next.Value
 	node.Next = node.Next.Next
 }

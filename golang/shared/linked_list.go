@@ -1,4 +1,4 @@
-package util
+package shared
 
 type LinkedList[T comparable] struct {
 	Head *Node[T]

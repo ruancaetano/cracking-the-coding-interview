@@ -3,7 +3,7 @@ package chapter1
 import (
 	"fmt"
 
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/util"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
 )
 
 var spaceEncodeRunes = []rune{'%', '2', '0'}
@@ -13,15 +13,15 @@ var spaceEncodeRunes = []rune{'%', '2', '0'}
 // You may assume that the string has sufficient space at the end to hold the additional characters, and that you are given the "true" length of the string.
 // (Note: If implementing in Java, please use a character array so that you can perform this operation in place.)
 func RunChapter1Exercise3() {
-	fmt.Println(urlify(util.StringToRuneArray("123"), 3))
-	fmt.Println(urlify(util.StringToRuneArray("1 2 3       "), 6))
-	fmt.Println(urlify(util.StringToRuneArray("Mr John Smith    "), 13))
+	fmt.Println(urlify(shared.StringToRuneArray("123"), 3))
+	fmt.Println(urlify(shared.StringToRuneArray("1 2 3       "), 6))
+	fmt.Println(urlify(shared.StringToRuneArray("Mr John Smith    "), 13))
 
 	fmt.Println("----------")
 
-	fmt.Println(urlifyWithBuilder(util.StringToRuneArray("123"), 3))
-	fmt.Println(urlifyWithBuilder(util.StringToRuneArray("1 2 3       "), 6))
-	fmt.Println(urlifyWithBuilder(util.StringToRuneArray("Mr John Smith    "), 13))
+	fmt.Println(urlifyWithBuilder(shared.StringToRuneArray("123"), 3))
+	fmt.Println(urlifyWithBuilder(shared.StringToRuneArray("1 2 3       "), 6))
+	fmt.Println(urlifyWithBuilder(shared.StringToRuneArray("Mr John Smith    "), 13))
 }
 
 // Solution without new structures
@@ -51,7 +51,7 @@ func urlify(input []rune, trueLength int) string {
 // Space: O(N)
 // Where N is the input length
 func urlifyWithBuilder(input []rune, trueLength int) string {
-	builder := util.NewStringBuilder()
+	builder := shared.NewStringBuilder()
 
 	for i := 0; i < trueLength; i++ {
 		if input[i] != ' ' {

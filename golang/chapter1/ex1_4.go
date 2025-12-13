@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"unicode"
 
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/util"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
 )
 
 // RunChapter1Exercise4
@@ -13,9 +13,9 @@ import (
 // A permutation is a rearrangement of letters.The palindrome does not need to be limited to just dictionary words.
 // You can ignore casing and non-letter characters
 func RunChapter1Exercise4() {
-	fmt.Println(isPermutationOfPalindrome(util.StringToRuneArray("Tact Coa")))
-	fmt.Println(isPermutationOfPalindrome(util.StringToRuneArray("Amanapla nacana lPanama")))
-	fmt.Println(isPermutationOfPalindrome(util.StringToRuneArray("Ablewas 12 IsawElba")))
+	fmt.Println(isPermutationOfPalindrome(shared.StringToRuneArray("Tact Coa")))
+	fmt.Println(isPermutationOfPalindrome(shared.StringToRuneArray("Amanapla nacana lPanama")))
+	fmt.Println(isPermutationOfPalindrome(shared.StringToRuneArray("Ablewas 12 IsawElba")))
 }
 
 // Time: O(N)

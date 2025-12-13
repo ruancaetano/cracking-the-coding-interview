@@ -3,7 +3,7 @@ package chapter2
 import (
 	"fmt"
 
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/util"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
 )
 
 // RunChapter2Exercise4
@@ -15,8 +15,8 @@ import (
 // Output: 3 -> 2 -> 1 -> 5 -> 8 -> 5 -> 10
 func RunChapter2Exercise4() {
 	// Build example list
-	inputA := util.NewLinkedListFromSlice([]int{3, 5, 8, 5, 10, 2, 1})
-	inputB := util.NewLinkedListFromSlice([]int{3, 5, 8, 5, 10, 2, 1})
+	inputA := shared.NewLinkedListFromSlice([]int{3, 5, 8, 5, 10, 2, 1})
+	inputB := shared.NewLinkedListFromSlice([]int{3, 5, 8, 5, 10, 2, 1})
 
 	partitionVal := 5
 
@@ -38,9 +38,9 @@ func RunChapter2Exercise4() {
 // Partial bubble sort. Respect the scenarios, but change the elements order
 // Time: N * N/2 -> N^2 / 2 -> N^2
 // Space: O(1)
-func buildPartitionWithSort(head *util.Node[int], target int) {
+func buildPartitionWithSort(head *shared.Node[int], target int) {
 	i := head
-	var j *util.Node[int]
+	var j *shared.Node[int]
 
 	for {
 		if i == nil {
@@ -74,9 +74,9 @@ func buildPartitionWithSort(head *util.Node[int], target int) {
 // Stable partition, keeping order of the elements
 // Time: N
 // Space: O(1)
-func buildStablePartition(head *util.Node[int], target int) *util.Node[int] {
-	var belowTargetStart, belowTargetEnd *util.Node[int]
-	var aboveTargetStart, aboveTargetEnd *util.Node[int]
+func buildStablePartition(head *shared.Node[int], target int) *shared.Node[int] {
+	var belowTargetStart, belowTargetEnd *shared.Node[int]
+	var aboveTargetStart, aboveTargetEnd *shared.Node[int]
 
 	for head != nil {
 		next := head.Next

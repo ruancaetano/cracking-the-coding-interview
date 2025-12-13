@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/util"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
 )
 
 // RunChapter1Exercise6
@@ -13,9 +13,9 @@ import (
 // original string, your method should return the original string.
 // You can assume the string has only uppercase and lowercase letters (a - z).
 func RunChapter1Exercise6() {
-	fmt.Println(compressString(util.StringToRuneArray("aabcccccaaa")))
-	fmt.Println(compressString(util.StringToRuneArray("abc")))
-	fmt.Println(compressString(util.StringToRuneArray("aabbcccccccd")))
+	fmt.Println(compressString(shared.StringToRuneArray("aabcccccaaa")))
+	fmt.Println(compressString(shared.StringToRuneArray("abc")))
+	fmt.Println(compressString(shared.StringToRuneArray("aabbcccccccd")))
 }
 
 // Time: O(N)

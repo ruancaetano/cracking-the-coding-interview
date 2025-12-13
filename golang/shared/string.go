@@ -1,4 +1,4 @@
-package util
+package shared
 
 // StringToRuneArray converts a string to a mutable []rune slice for algorithm exercises.
 // This utility allows to work with mutable character arrays while keeping test inputs readable.

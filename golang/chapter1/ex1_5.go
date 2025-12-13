@@ -3,7 +3,7 @@ package chapter1
 import (
 	"fmt"
 
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/util"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
 )
 
 // RunChapter1Exercise5
@@ -15,10 +15,10 @@ import (
 // pale, bale -> true
 // pale, bake -> false
 func RunChapter1Exercise5() {
-	fmt.Println(isOneWayEdit(util.StringToRuneArray("pale"), util.StringToRuneArray("pile")))
-	fmt.Println(isOneWayEdit(util.StringToRuneArray("pales"), util.StringToRuneArray("pale")))
-	fmt.Println(isOneWayEdit(util.StringToRuneArray("pale"), util.StringToRuneArray("bale")))
-	fmt.Println(isOneWayEdit(util.StringToRuneArray("pale"), util.StringToRuneArray("bakerrr")))
+	fmt.Println(isOneWayEdit(shared.StringToRuneArray("pale"), shared.StringToRuneArray("pile")))
+	fmt.Println(isOneWayEdit(shared.StringToRuneArray("pales"), shared.StringToRuneArray("pale")))
+	fmt.Println(isOneWayEdit(shared.StringToRuneArray("pale"), shared.StringToRuneArray("bale")))
+	fmt.Println(isOneWayEdit(shared.StringToRuneArray("pale"), shared.StringToRuneArray("bakerrr")))
 }
 
 // Time: O(N + K)

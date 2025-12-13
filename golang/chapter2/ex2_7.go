@@ -1,6 +1,6 @@
 package chapter2
 
-import "github.com/ruancaetano/cracking-the-coding-interview/golang/util"
+import "github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
 
 // RunChapter2Exercise7
 // Intersection: Given two (singly) linked lists, determine if the two lists intersect.
@@ -21,7 +21,7 @@ func RunChapter2Exercise7() {
 // findIntersection should return the node at which the two linked lists intersect,
 // or nil if the lists do not intersect.
 // Implement the logic for this function as part of your solution.
-func findIntersection(a, b *util.Node[int]) *util.Node[int] {
+func findIntersection(a, b *shared.Node[int]) *shared.Node[int] {
 	// TODO: Implement intersection detection for two linked lists.
 	panic("implement me")
 }
