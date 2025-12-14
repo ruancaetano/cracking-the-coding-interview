@@ -38,10 +38,7 @@ func RunChapter2Exercise5() {
 }
 
 // sumLists
-// Setup for the solution:
-// Implement this function to add two numbers represented by linked lists (digits in reverse order).
-// The function should return the head of a new linked list representing the sum.
-// Time: O(N) where N is the length of the bigger number
+// Time: O(N) where N is the length of the biggest number
 // Space: O(N)
 func sumLists(a, b *shared.Node[int]) *shared.Node[int] {
 	var carry int
