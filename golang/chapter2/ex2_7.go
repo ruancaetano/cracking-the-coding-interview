@@ -1,6 +1,10 @@
 package chapter2
 
-import "github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
+import (
+	"fmt"
+
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
+)
 
 // RunChapter2Exercise7
 // Intersection: Given two (singly) linked lists, determine if the two lists intersect.
@@ -11,19 +15,112 @@ import "github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
 // Example:
 // List A: 3 -> 7 -> 8 -> 10
 // List B:     99 -> 1 ↘
-//                    8 -> 10
+//
+//	8 -> 10
 //
 // Use this function to construct example lists and test your implementation.
 func RunChapter2Exercise7() {
 	// TODO: Build example linked lists and call findIntersection.
+	aValues := []int{3, 7, 8, 10}
+	bValues := []int{99, 1, 8, 10}
+	listA := shared.NewLinkedListFromSlice(aValues)
+	listB := shared.NewLinkedListFromSlice(bValues)
+
+	refNode := listA.NodeAt(2)
+	listB.SetNextAt(2, refNode)
+
+	fmt.Print("List A: ")
+	listA.Print()
+	fmt.Print("List B: ")
+	listB.Print()
+
+	intersecitonNode1 := findIntersection(listA.Head, listB.Head)
+	inteserctionNode2 := optimizedFindIntersection(listA.Head, listB.Head)
+
+	fmt.Print("Result: ")
+	if intersecitonNode1 != nil {
+		intersecitonNode1.Print()
+	} else {
+		fmt.Println("No intersection")
+	}
+
+	fmt.Print("Result with optmized func: ")
+	if inteserctionNode2 != nil {
+		inteserctionNode2.Print()
+	} else {
+		fmt.Println("No intersection")
+	}
+
 }
 
-// findIntersection should return the node at which the two linked lists intersect,
-// or nil if the lists do not intersect.
-// Implement the logic for this function as part of your solution.
+// Time: O(M * N)
+// Space: O(1)
 func findIntersection(a, b *shared.Node[int]) *shared.Node[int] {
-	// TODO: Implement intersection detection for two linked lists.
-	panic("implement me")
+	refA := a
+	refB := b
+
+	for refA != nil {
+		for refB != nil {
+			if refB == refA {
+				return refB
+			}
+
+			refB = refB.Next
+		}
+
+		refA = refA.Next
+		refB = b
+	}
+
+	return nil
 }
 
+// Time: O(M + N)
+// Space: O(1)
+func optimizedFindIntersection(a, b *shared.Node[int]) *shared.Node[int] {
+	if a == nil || b == nil {
+		return nil
+	}
 
+	pa := a
+	pb := b
+
+	countA := calcLen(a)
+	countB := calcLen(b)
+
+	if countA > countB {
+		diff := countA - countB
+		for diff > 0 {
+			pa = pa.Next
+			diff--
+		}
+	} else {
+		diff := countB - countA
+		for diff > 0 {
+			pb = pb.Next
+			diff--
+		}
+	}
+
+	// pa and pb have the same size from here
+	for pa != nil && pb != nil {
+		if pa == pb {
+			return pa
+		}
+		pa = pa.Next
+		pb = pb.Next
+	}
+
+	return nil
+}
+
+func calcLen(node *shared.Node[int]) int {
+	count := 0
+
+	for node != nil {
+		count += 1
+		node = node.Next
+	}
+
+	return count
+}

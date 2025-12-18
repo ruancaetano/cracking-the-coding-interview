@@ -9,6 +9,19 @@ type Node[T comparable] struct {
 	Next  *Node[T]
 }
 
+// PrintNode prints the value of the given node and all subsequent nodes in the list.
+func (node *Node[T]) Print() {
+	current := node
+	for current != nil {
+		print(current.Value)
+		if current.Next != nil {
+			print(" -> ")
+		}
+		current = current.Next
+	}
+	println()
+}
+
 func NewLinkedListFromSlice[T comparable](slice []T) LinkedList[T] {
 	list := LinkedList[T]{}
 	if len(slice) == 0 {
@@ -34,4 +47,33 @@ func (l *LinkedList[T]) Print() {
 		current = current.Next
 	}
 	println()
+}
+
+func (l *LinkedList[T]) NodeAt(index int) *Node[T] {
+	current := l.Head
+	pos := 0
+	for current != nil {
+		if pos == index {
+			return current
+		}
+		current = current.Next
+		pos++
+	}
+	return nil
+}
+
+func (l *LinkedList[T]) SetNextAt(index int, node *Node[T]) {
+	if index == 0 {
+		l.Head = node
+		return
+	}
+	prev := l.Head
+	pos := 0
+	for prev != nil && pos < index-1 {
+		prev = prev.Next
+		pos++
+	}
+	if prev != nil && prev.Next != nil {
+		prev.Next = node
+	}
 }
