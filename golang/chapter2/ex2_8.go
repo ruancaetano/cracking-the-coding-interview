@@ -16,13 +16,48 @@ import "github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
 //
 // Use this function to build your own circular list examples and test your solution.
 func RunChapter2Exercise8() {
-	// TODO: Build example circular linked lists and call detectLoopStart.
+	// Example: A -> B -> C -> D -> E -> C
+	list := shared.NewLinkedListFromSlice([]rune{'A', 'B', 'C', 'D', 'E'})
+
+	// Make the list circular: last node (E/5) points to C (3)
+	nodeC := list.NodeAt(2)    // C is at index 2
+	lastNode := list.NodeAt(4) // E is at index 4
+	if lastNode != nil && nodeC != nil {
+		lastNode.Next = nodeC
+	}
+
+	print("Result list with loop: ")
+	loopStart := detectLoopStart(list.Head)
+	if loopStart != nil {
+		println("Loop starts at node with value:", string(loopStart.Value))
+	} else {
+		println("No loop detected")
+	}
+
+	// Example without loop
+	print("Result list withlout loop: ")
+	straightList := shared.NewLinkedListFromSlice([]rune{'F', 'G', 'H', 'I'})
+	loopStart2 := detectLoopStart(straightList.Head)
+	if loopStart2 != nil {
+		println("Loop starts at node with value:", string(loopStart2.Value))
+	} else {
+		println("No loop detected")
+	}
 }
 
-// detectLoopStart should return the node at the beginning of the loop,
-// or nil if there is no loop in the list.
-// Implement the logic for this function as part of your solution.
-func detectLoopStart(head *shared.Node[int]) *shared.Node[int] {
-	// TODO: Implement loop detection for the linked list.
-	panic("implement me")
+// Time: O(N)
+// Space: O(N)
+func detectLoopStart(head *shared.Node[rune]) *shared.Node[rune] {
+	visitedSet := make(map[*shared.Node[rune]]struct{})
+
+	ref := head
+	for ref != nil {
+		if _, found := visitedSet[ref]; found {
+			return ref
+		}
+		visitedSet[ref] = struct{}{}
+		ref = ref.Next
+	}
+
+	return nil
 }
