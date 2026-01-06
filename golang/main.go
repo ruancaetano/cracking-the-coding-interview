@@ -9,6 +9,7 @@ import (
 
 	"github.com/ruancaetano/cracking-the-coding-interview/golang/chapter1"
 	"github.com/ruancaetano/cracking-the-coding-interview/golang/chapter2"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/chapter3"
 )
 
 type exercise struct {
@@ -47,6 +48,17 @@ var chapters = []chapter{
 			{name: "Exercise 6 - Palindrome", run: chapter2.RunChapter2Exercise6},
 			{name: "Exercise 7 - Intersection", run: chapter2.RunChapter2Exercise7},
 			{name: "Exercise 8 - Loop Detection", run: chapter2.RunChapter2Exercise8},
+		},
+	},
+	{
+		name: "Chapter 3",
+		exercises: []exercise{
+			{name: "Exercise 1 - Three in One", run: chapter3.RunChapter3Exercise1},
+			{name: "Exercise 2 - Stack Min", run: chapter3.RunChapter3Exercise2},
+			{name: "Exercise 3 - Stack of Plates", run: chapter3.RunChapter3Exercise3},
+			{name: "Exercise 4 - Queue via Stacks", run: chapter3.RunChapter3Exercise4},
+			{name: "Exercise 5 - Sort Stack", run: chapter3.RunChapter3Exercise5},
+			{name: "Exercise 6 - Animal Shelter", run: chapter3.RunChapter3Exercise6},
 		},
 	},
 }
