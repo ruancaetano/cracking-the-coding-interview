@@ -46,7 +46,8 @@ func isPalindrome(head *shared.Node[int]) bool {
 	}
 
 	for {
-		if firstHalfPointer.Value != secondHalfStack.Pop() {
+		poppedV, _ := secondHalfStack.Pop()
+		if firstHalfPointer.Value != poppedV {
 			return false
 		}
 
