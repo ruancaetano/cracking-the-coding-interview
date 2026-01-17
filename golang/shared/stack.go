@@ -56,6 +56,11 @@ func (s *Stack[T]) Size() int {
 	return s.top + 1
 }
 
+// Clean removes all items from the stack, making it empty.
+func (s *Stack[T]) Clean() {
+	s.top = -1
+}
+
 // Print prints the stack elements from top to bottom
 func (s *Stack[T]) Print() {
 	for i := s.top; i >= 0; i-- {
