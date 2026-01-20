@@ -10,6 +10,7 @@ import (
 	"github.com/ruancaetano/cracking-the-coding-interview/golang/chapter1"
 	"github.com/ruancaetano/cracking-the-coding-interview/golang/chapter2"
 	"github.com/ruancaetano/cracking-the-coding-interview/golang/chapter3"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/chapter4"
 )
 
 type exercise struct {
@@ -59,6 +60,23 @@ var chapters = []chapter{
 			{name: "Exercise 4 - Queue via Stacks", run: chapter3.RunChapter3Exercise4},
 			{name: "Exercise 5 - Sort Stack", run: chapter3.RunChapter3Exercise5},
 			{name: "Exercise 6 - Animal Shelter", run: chapter3.RunChapter3Exercise6},
+		},
+	},
+	{
+		name: "Chapter 4",
+		exercises: []exercise{
+			{name: "Exercise 1 - Route Between Nodes", run: chapter4.RunChapter4Exercise1},
+			{name: "Exercise 2 - Minimal Tree", run: chapter4.RunChapter4Exercise2},
+			{name: "Exercise 3 - List of Depths", run: chapter4.RunChapter4Exercise3},
+			{name: "Exercise 4 - Check Balanced", run: chapter4.RunChapter4Exercise4},
+			{name: "Exercise 5 - Validate BST", run: chapter4.RunChapter4Exercise5},
+			{name: "Exercise 6 - Successor", run: chapter4.RunChapter4Exercise6},
+			{name: "Exercise 7 - Build Order", run: chapter4.RunChapter4Exercise7},
+			{name: "Exercise 8 - First Common Ancestor", run: chapter4.RunChapter4Exercise8},
+			{name: "Exercise 9 - BST Sequences", run: chapter4.RunChapter4Exercise9},
+			{name: "Exercise 10 - Check Subtree", run: chapter4.RunChapter4Exercise10},
+			{name: "Exercise 11 - Random Node", run: chapter4.RunChapter4Exercise11},
+			{name: "Exercise 12 - Paths with Sum", run: chapter4.RunChapter4Exercise12},
 		},
 	},
 }
