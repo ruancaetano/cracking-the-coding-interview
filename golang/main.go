@@ -143,7 +143,7 @@ func main() {
 
 	graph := buildGraphs(nodes)
 
-	graph.SearchDFS(5)
+	graph.SearchBFS(2)
 }
 
 func generateNodes(n int) []*graph.Node[int] {
