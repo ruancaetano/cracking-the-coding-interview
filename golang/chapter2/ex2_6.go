@@ -2,6 +2,7 @@ package chapter2
 
 import (
 	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared/stack"
 )
 
 // RunChapter2Exercise6
@@ -39,7 +40,7 @@ func isPalindrome(head *shared.Node[int]) bool {
 	firstHalfPointer := head
 	secondHalfPointer := middleNode
 
-	secondHalfStack := shared.Stack[int]{}
+	secondHalfStack := stack.Stack[int]{}
 	for secondHalfPointer != nil {
 		secondHalfStack.Push(secondHalfPointer.Value)
 		secondHalfPointer = secondHalfPointer.Next

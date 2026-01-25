@@ -3,7 +3,7 @@ package chapter3
 import (
 	"fmt"
 
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared/stack"
 )
 
 // RunChapter3Exercise5
@@ -11,7 +11,7 @@ import (
 func RunChapter3Exercise5() {
 	fmt.Println("Chapter 3 - Exercise 5: Sort Stack")
 
-	sortStack := shared.NewSortStack(10)
+	sortStack := stack.NewSortStack(10)
 
 	// push some unsorted values
 	values := []int{3, 5, 1, 4, 2}

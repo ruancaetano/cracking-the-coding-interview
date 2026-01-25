@@ -3,7 +3,7 @@ package chapter3
 import (
 	"fmt"
 
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared/queue"
 )
 
 // RunChapter3Exercise4
@@ -12,7 +12,7 @@ func RunChapter3Exercise4() {
 	fmt.Println("Queue via Stacks (DoubleStackQueue) Example:")
 
 	// Create a queue with some capacity.
-	queue := shared.NewDoubleStackQueue(10)
+	queue := queue.NewDoubleStackQueue(10)
 
 	// First phase: enqueue initial items.
 	firstBatch := []int{1, 2, 3, 4, 5, 6}

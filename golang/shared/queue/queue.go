@@ -1,4 +1,4 @@
-package shared
+package queue
 
 import (
 	"errors"

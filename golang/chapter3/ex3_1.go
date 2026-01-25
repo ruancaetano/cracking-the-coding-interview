@@ -3,7 +3,7 @@ package chapter3
 import (
 	"fmt"
 
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared/stack"
 )
 
 // RunChapter3Exercise1
@@ -32,7 +32,7 @@ import (
 func RunChapter3Exercise1() {
 
 	fmt.Printf("========== Creating stack ==========\n\n")
-	stack := shared.NewSingleArrayStack(15, 3)
+	stack := stack.NewSingleArrayStack(15, 3)
 	stack.Print()
 
 	fmt.Printf("\n\n========== Pushing values ==========\n\n")

@@ -3,7 +3,7 @@ package chapter3
 import (
 	"fmt"
 
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared/stack"
 )
 
 // RunChapter3Exercise3
@@ -11,7 +11,7 @@ import (
 func RunChapter3Exercise3() {
 	fmt.Printf("Example: SetOfStacks with sub-stack capacity 3\n\n")
 
-	set := shared.NewSetOfStacks(3)
+	set := stack.NewSetOfStacks(3)
 
 	fmt.Printf("\n=== Fill Stack ===\n\n")
 	for i := 1; i <= 10; i++ {

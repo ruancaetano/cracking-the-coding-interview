@@ -1,4 +1,4 @@
-package shared
+package stack
 
 type SortStack struct {
 	stack    *Stack[int]

@@ -1,15 +1,17 @@
-package shared
+package petshelter
+
+import "github.com/ruancaetano/cracking-the-coding-interview/golang/shared/queue"
 
 type PetShelter struct {
-	dogs *Queue[Pet]
-	cats *Queue[Pet]
+	dogs *queue.Queue[Pet]
+	cats *queue.Queue[Pet]
 }
 
 // NewShelter creates a new Shelter with queues for dogs and cats.
 func NewPetShelter(cap int) *PetShelter {
 	return &PetShelter{
-		dogs: NewQueue[Pet](cap),
-		cats: NewQueue[Pet](cap),
+		dogs: queue.NewQueue[Pet](cap),
+		cats: queue.NewQueue[Pet](cap),
 	}
 }
 

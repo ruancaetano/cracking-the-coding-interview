@@ -3,7 +3,7 @@ package chapter3
 import (
 	"fmt"
 
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared/stack"
 )
 
 // RunChapter3Exercise2
@@ -11,7 +11,7 @@ import (
 func RunChapter3Exercise2() {
 	fmt.Println("Stack Min (MinControlStack) Example:")
 
-	stack := shared.NewMinControlStack(10)
+	stack := stack.NewMinControlStack(10)
 	vals := []int{5, 6, 3, 7, 2, 2, 8}
 
 	fmt.Println("Pushing values onto stack:")

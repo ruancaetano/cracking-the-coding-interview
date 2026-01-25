@@ -1,17 +1,21 @@
-package shared
+package queue
 
-import "errors"
+import (
+	"errors"
+
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared/stack"
+)
 
 type DoubleStackQueue struct {
-	inputStack  *Stack[int]
-	outputStack *Stack[int]
+	inputStack  *stack.Stack[int]
+	outputStack *stack.Stack[int]
 	cap         int
 }
 
 func NewDoubleStackQueue(cap int) *DoubleStackQueue {
 	return &DoubleStackQueue{
-		inputStack:  NewStack[int](cap),
-		outputStack: NewStack[int](cap),
+		inputStack:  stack.NewStack[int](cap),
+		outputStack: stack.NewStack[int](cap),
 		cap:         cap,
 	}
 }

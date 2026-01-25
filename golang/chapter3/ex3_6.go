@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared/petshelter"
 )
 
 // RunChapter3Exercise6
@@ -12,7 +12,7 @@ import (
 func RunChapter3Exercise6() {
 	fmt.Println("Chapter 3 - Exercise 6: Animal Shelter")
 
-	shelter := shared.NewPetShelter(10)
+	shelter := petshelter.NewPetShelter(10)
 	now := time.Now()
 
 	// create some pets with increasing entry dates
@@ -29,7 +29,7 @@ func RunChapter3Exercise6() {
 	}
 
 	for _, pd := range petsData {
-		pet, err := shared.NewPet(pd.name, pd.kind, now.Add(pd.offset))
+		pet, err := petshelter.NewPet(pd.name, pd.kind, now.Add(pd.offset))
 		if err != nil {
 			fmt.Println("error creating pet:", err)
 			return

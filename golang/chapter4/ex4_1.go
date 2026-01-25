@@ -9,4 +9,3 @@ func RunChapter4Exercise1() {
 	fmt.Println("Chapter 4 - Exercise 1: Route Between Nodes")
 	// TODO: implement solution
 }
-
