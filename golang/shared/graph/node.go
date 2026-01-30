@@ -1,7 +1,5 @@
 package graph
 
-import "fmt"
-
 type Node[T comparable] struct {
 	value     T
 	adjacents []*Node[T]
@@ -26,10 +24,6 @@ func (n *Node[T]) Visited() bool {
 
 func (n *Node[T]) SetVisited(v bool) {
 	n.visited = v
-
-	if v {
-		fmt.Println("Visited: ", n.value)
-	}
 }
 
 func (n *Node[T]) GetAdjacents() []*Node[T] {
