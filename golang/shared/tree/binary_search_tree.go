@@ -1,9 +1,25 @@
 package tree
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
+)
 
 type BinarySearchTree[T any] struct {
 	Root *Node[T]
+}
+
+func (b *BinarySearchTree[T]) GetNodesByDepthWithDFS() []*shared.LinkedList[T] {
+	lists := make([]*shared.LinkedList[T], 0)
+	if b.Root != nil {
+		b.Root.Depth = 0
+	}
+	return b.getNodesByDepthWithDFS(b.Root, lists)
+}
+
+func (b *BinarySearchTree[T]) GetNodesByDepthWithBFS() []*shared.LinkedList[T] {
+	return b.getNodesByDepthWithBFS()
 }
 
 func (b *BinarySearchTree[T]) Print() {

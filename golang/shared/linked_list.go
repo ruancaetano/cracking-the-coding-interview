@@ -1,12 +1,18 @@
 package shared
 
-type LinkedList[T comparable] struct {
+type LinkedList[T any] struct {
 	Head *Node[T]
 }
 
-type Node[T comparable] struct {
+type Node[T any] struct {
 	Value T
 	Next  *Node[T]
+}
+
+func NewNode[T any](v T) *Node[T] {
+	return &Node[T]{
+		Value: v,
+	}
 }
 
 // PrintNode prints the value of the given node and all subsequent nodes in the list.
@@ -35,6 +41,19 @@ func NewLinkedListFromSlice[T comparable](slice []T) LinkedList[T] {
 		current = current.Next
 	}
 	return list
+}
+
+func (l *LinkedList[T]) Add(n *Node[T]) {
+	if l.Head == nil {
+		l.Head = n
+		return
+	}
+
+	node := l.Head
+	for node.Next != nil {
+		node = node.Next
+	}
+	node.Next = n
 }
 
 func (l *LinkedList[T]) Print() {
