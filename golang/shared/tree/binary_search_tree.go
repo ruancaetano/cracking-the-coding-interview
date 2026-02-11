@@ -1,12 +1,13 @@
 package tree
 
 import (
+	"cmp"
 	"fmt"
 
 	"github.com/ruancaetano/cracking-the-coding-interview/golang/shared"
 )
 
-type BinarySearchTree[T any] struct {
+type BinarySearchTree[T cmp.Ordered] struct {
 	Root *Node[T]
 }
 

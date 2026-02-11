@@ -1,6 +1,6 @@
 package tree
 
-type Node[T any] struct {
+type Node[T comparable] struct {
 	Value T
 	Left  *Node[T]
 	Right *Node[T]

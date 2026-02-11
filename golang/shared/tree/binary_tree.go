@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-type BinaryTree[T any] struct {
+type BinaryTree[T comparable] struct {
 	Root *Node[T]
 }
 
@@ -13,8 +13,20 @@ func FromAdjacentList[T comparable](rootVal T, adj map[T][]*T) *BinaryTree[T] {
 	return &BinaryTree[T]{Root: buildFromAdjacentList(rootVal, adj)}
 }
 
+func buildFromAdjacentList[T comparable](val T, adj map[T][]*T) *Node[T] {
+	n := &Node[T]{Value: val}
+	children := adj[val]
+	if len(children) >= 1 && children[0] != nil {
+		n.Left = buildFromAdjacentList(*children[0], adj)
+	}
+	if len(children) >= 2 && children[1] != nil {
+		n.Right = buildFromAdjacentList(*children[1], adj)
+	}
+	return n
+}
+
 // Ptr returns a pointer to v. Use with FromAdjacentList for child values.
-func Ptr[T any](v T) *T { return &v }
+func Ptr[T comparable](v T) *T { return &v }
 
 func (b *BinaryTree[T]) CalcTreeHeight() int {
 	return b.calcBranchHeight(b.Root)
@@ -26,6 +38,30 @@ func (b *BinaryTree[T]) CalcBranchHeight(node *Node[T]) int {
 
 func (b *BinaryTree[T]) IsBalanced() bool {
 	return b.isBalanced(b.Root)
+}
+
+func (b *BinarySearchTree[T]) IsBinarySearchTree() bool {
+	return b.isBinarySearchTree(b.Root, nil, nil)
+}
+
+func (b *BinarySearchTree[T]) isBinarySearchTree(node *Node[T], min, max *T) bool {
+	if node == nil {
+		return true
+	}
+
+	if min != nil && node.Value <= *min {
+		return false
+	}
+	if max != nil && node.Value >= *max {
+		return false
+	}
+
+	return b.isBinarySearchTree(node.Left, min, &node.Value) &&
+		b.isBinarySearchTree(node.Right, &node.Value, max)
+}
+
+func (b *BinaryTree[T]) Print() {
+	b.printStruct(b.Root, "", true, true)
 }
 
 func (b *BinaryTree[T]) isBalanced(n *Node[T]) bool {
@@ -52,22 +88,6 @@ func (b *BinaryTree[T]) calcBranchHeight(node *Node[T]) int {
 		return leftHeight
 	}
 	return rightHeight
-}
-
-func (b *BinaryTree[T]) Print() {
-	b.printStruct(b.Root, "", true, true)
-}
-
-func buildFromAdjacentList[T comparable](val T, adj map[T][]*T) *Node[T] {
-	n := &Node[T]{Value: val}
-	children := adj[val]
-	if len(children) >= 1 && children[0] != nil {
-		n.Left = buildFromAdjacentList(*children[0], adj)
-	}
-	if len(children) >= 2 && children[1] != nil {
-		n.Right = buildFromAdjacentList(*children[1], adj)
-	}
-	return n
 }
 
 func (b *BinaryTree[T]) printStruct(n *Node[T], prefix string, isTail bool, isRoot bool) {

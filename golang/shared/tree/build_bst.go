@@ -1,6 +1,8 @@
 package tree
 
-func BuildSearchTreeFromSortedArray[T any](input []T) *BinarySearchTree[T] {
+import "cmp"
+
+func BuildSearchTreeFromSortedArray[T cmp.Ordered](input []T) *BinarySearchTree[T] {
 	if len(input) == 0 {
 		return nil
 	}
@@ -11,7 +13,7 @@ func BuildSearchTreeFromSortedArray[T any](input []T) *BinarySearchTree[T] {
 	}
 }
 
-func buildSearchTreeFromSortedArray[T any](input []T) *Node[T] {
+func buildSearchTreeFromSortedArray[T cmp.Ordered](input []T) *Node[T] {
 	if len(input) == 0 {
 		return nil
 	}
